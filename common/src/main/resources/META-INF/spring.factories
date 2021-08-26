@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  club.jiajiajia.rabbitmq.common.DirectExchangeConfig,\
+  club.jiajiajia.rabbitmq.common.FanoutExchangeConfig,\
+  club.jiajiajia.rabbitmq.common.DelayExchangeConfig,\
+  club.jiajiajia.rabbitmq.common.TopicExchangeConfig
