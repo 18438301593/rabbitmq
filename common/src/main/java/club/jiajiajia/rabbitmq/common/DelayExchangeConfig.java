@@ -1,6 +1,8 @@
 package club.jiajiajia.rabbitmq.common;
 
 import org.springframework.amqp.core.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,6 +15,7 @@ import java.util.Map;
 * @Description: 延时交换机（需要安装插件 rabbitmq_delayed_message_exchange）
 */
 @Configuration
+@ConditionalOnProperty(name = "spring.delay", havingValue = "true")
 public class DelayExchangeConfig {
     public DelayExchangeConfig(){
         System.out.println("DelayExchangeConfig init");

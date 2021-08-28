@@ -1,6 +1,8 @@
 package club.jiajiajia.rabbitmq.consumer.listener;
 
+import club.jiajiajia.rabbitmq.common.DelayExchangeConfig;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -12,6 +14,7 @@ import java.util.Map;
 * @Description: 延迟交换机 监听器
 */
 @Component
+@ConditionalOnBean(DelayExchangeConfig.class)
 public class DelayListener {
     @RabbitListener(queues = "delayQueue")
     public void receive(Map map){
