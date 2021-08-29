@@ -1,12 +1,17 @@
 server:
   port: 8021
 spring:
+  delay: true
   #给项目来个名字
   application:
     name: rabbitmq-provider
   #配置rabbitMq 服务器
   rabbitmq:
-    host: 192.168.183.131
+    publisher-confirm-type: correlated # 发布确认模式，发布消息成功到交换机后会触发回调方法
+    publisher-returns: true
+    host: 192.168.159.128
     port: 5672
     username: guest
     password: guest
+    #publisher-confirm-type: none # 禁用发布确认模式 默认
+

@@ -50,4 +50,15 @@ public class DirectExchangeConfig {
         return BindingBuilder.bind(directQueue()).
                 to(directExchange()).with("directRouting");
     }
+
+    @Bean
+    public Queue directQueue2() {
+        return new Queue("directQueue2",true);
+    }
+
+    @Bean
+    Binding bindingDirect2() {
+        return BindingBuilder.bind(directQueue2()).
+                to(directExchange()).with("directRouting2");
+    }
 }

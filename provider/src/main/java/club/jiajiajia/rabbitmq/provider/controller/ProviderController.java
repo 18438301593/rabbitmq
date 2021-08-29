@@ -1,5 +1,6 @@
 package club.jiajiajia.rabbitmq.provider.controller;
 
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,10 +22,12 @@ public class ProviderController {
      */
     @GetMapping("direct")
     private String direct(){
+        CorrelationData correlationData = new CorrelationData();
+        correlationData.setId("1");
         Map map = new HashMap();
         map.put("id","1");
         map.put("name","peiqi");
-        rabbitTemplate.convertAndSend("directExchange","directRouting", map);
+        rabbitTemplate.convertAndSend("directExchange","directRouting", map,correlationData);
         return "ok";
     }
 
