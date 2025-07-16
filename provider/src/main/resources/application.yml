@@ -6,7 +6,11 @@ spring:
     name: rabbitmq-provider
   #配置rabbitMq 服务器
   rabbitmq:
-    host: 192.168.183.131
+    host: 172.25.11.67
     port: 5672
-    username: guest
-    password: guest
+    username: root
+    password: 123456
+    publisher-confirm-type: correlated
+    publisher-returns: true   # 开启返回模式
+    template:
+      mandatory: true         # 必须设置为true，否则ReturnCallback不生效
